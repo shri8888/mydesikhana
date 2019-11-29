@@ -84,7 +84,19 @@ $blocked_char8 = stripos($name, "hughes");
 //$reg_match = preg_match($regexp, $name);
 if ($name != "Sarah Carlson" && $name != "Ann Weaver" && !$blocked_char && !$blocked_char1 && !$blocked_char2 && !$blocked_char3 && !$blocked_char4 && !$blocked_char5 && !$blocked_char6 && !$blockedname && !$blocked_char8 )
 {
+
+?>
+<script  type="text/javascript">
+
+                                alert("Inside Sent");
+
+                               
+
+</script>
+<?php
+
 $sent = mail($to,$subject,$message,$header);
+
 }
 else
 {
