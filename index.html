@@ -95,7 +95,7 @@ input[type=submit]:hover {
                     <div class="col-md-6">
                         <div class="md-form mb-0" style="margin-top:6px;">
                             <input type="email" id="email" name="email" class="form-control" placeholder="E-mail" required />
-                           
+                            <input type="hidden" id="source" name="source" class="form-control" placeholder=""  />
                         </div>
                     </div>
                     <!--Grid column-->
@@ -165,7 +165,8 @@ input[type=submit]:hover {
 	$(document).on('click', '#toggle', function(){
 	//event.preventDefault();
 	//alert("Clicked");
-	
+	 document.getElementById("source").value = window.location.href;
+	// alert(document.getElementById("source").value);
 	  var form_data = $("form").serialize();
 	//  alert(form_data)
 	 // alert(document.getElementById("name").value);
