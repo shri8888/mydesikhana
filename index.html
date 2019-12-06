@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-     <title>My Desi Khana - Coming Soon</title>
-	  
+    <title>My Desi Khana - Coming Soon</title>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" >
     <!-- Fonts -->
@@ -78,7 +78,7 @@ input[type=submit]:hover {
             <div class="subscribe-form text-center">
 			
 			 <h4>Have Queries ? Do not hesitate to contact us below and we shall get back to you shortly!</h4>
-              <form class="form-inline" METHOD="POST" action="contactus_send.php">
+              <form class="form-inline" id="comment_form" >
 			    <!--Grid row-->
                 <div class="row">
 
@@ -121,8 +121,9 @@ input[type=submit]:hover {
 
    
    
-     <button class="btn btn-common btn-round" type="submit">Submit</button>
+     
   </form>
+  <button class="btn btn-common btn-round" id="toggle">Submit</button>
 </div>
     </section>
     <!-- Coundown Section End -->
@@ -158,6 +159,31 @@ input[type=submit]:hover {
               { src: "assets/img/desi_khana_header.jpg" }
           ]
       });
+	  
+	  $(document).ready(function(){
+		
+	$(document).on('click', '#toggle', function(){
+	//event.preventDefault();
+	//alert("Clicked");
+	
+	  var form_data = $("form").serialize();
+	//  alert(form_data)
+	 // alert(document.getElementById("name").value);
+	   $.ajax({
+	   
+		url:"https://webbifyme.com/send_email.php",
+		method:"POST",
+		data:form_data,
+		success:function(data)
+		{
+		 alert("Thank you. We have received your message and will be in touch with you shortly..");
+		 document.getElementById("comment_form").reset();
+		}
+		});
+	  });
+	  });
+	  
+	  
     </script>
       
   </body>
